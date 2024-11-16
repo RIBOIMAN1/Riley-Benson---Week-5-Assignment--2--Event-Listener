@@ -39,22 +39,22 @@ document.addEventListener('DOMContentLoaded', function () { // Waits until the d
 // function as expected. There are many ways to accomplish this task, but you will need
 // to at minimum add listeners to each link and toggle the display of the tab contents.
 // Hint: display: none; hides an element, and display: block; will bring it
-function ShowTab(TabList) {
-    const tabs = document.querySelectorAll('#tabbed-contents > div');
-    tabs.forEach((tab, index) => {
-        tab.style.display = (index === TabList) ? 'block' : 'none';
+function ShowTab(TabList) { // Define a function that shows a specific tab to the user
+    const tabs = document.querySelectorAll('#tabbed-contents > div'); // Selects all of the tab content divs
+    tabs.forEach((tab, index) => { // Iterates through each tab
+        tab.style.display = (index === TabList) ? 'block' : 'none'; // Shows the contents of the tab that the user has selected, and blocks the other tab's contents from view
     });
 }
-document.getElementById("tab1Link").addEventListener("click", function (event) {
-    event.preventDefault();
-    ShowTab(0);
+document.getElementById("tab1Link").addEventListener("click", function (event) { // Adds a click event listener function to the first tab link
+    event.preventDefault(); // Prevents the default link behavior from occurring
+    ShowTab(0); // Shows the first tab and its contents to the user
 });
-document.getElementById("tab2Link").addEventListener("click", function (event) {
-    event.preventDefault();
-    ShowTab(1);
+document.getElementById("tab2Link").addEventListener("click", function (event) { // Adds a click event listener function to the second tab link
+    event.preventDefault(); // Prevents the default link behavior from occurring
+    ShowTab(1); // Shows the second tab and its contents to the user
 });
-document.getElementById("tab3Link").addEventListener("click", function (event) {
-    event.preventDefault();
-    ShowTab(2);
+document.getElementById("tab3Link").addEventListener("click", function (event) { // Adds a click event listener function to the third tab link
+    event.preventDefault(); // Prevents the default link behavior from occurring
+    ShowTab(2); // Shows the third tab and its contents to the user
 });
-ShowTab(0);
+ShowTab(0); // Show the first tab by default
