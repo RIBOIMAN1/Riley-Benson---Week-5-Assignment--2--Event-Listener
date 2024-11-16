@@ -11,25 +11,25 @@
 // Hint: keeping track of the size in percentage might be easier.
 // Hint: Make sure you quote the emoji characters. They are strings, after all.
 // Hint: document.getElementById("balloon") will get the balloon element on the page.
-document.addEventListener('DOMContentLoaded', function () {
-    let balloon = document.getElementById("balloon");
-    let size = 20;
-    document.addEventListener("keydown", function (event) {
-        if (balloon.innerHTML === "🎈") {
-            if (event.key === "ArrowUp") {
-                size *= 1.1;
-                if (size > 100) {
-                    balloon.innerHTML = "💥";
-                    document.removeEventListener("keydown", arguments.callee);
+document.addEventListener('DOMContentLoaded', function () { // Waits until the document is fully loaded before running the given function
+    let balloon = document.getElementById("balloon"); // Retrieves the balloon element by its ID
+    let size = 20; // Sets the initial size of the balloon to 20 pixels
+    document.addEventListener("keydown", function (event) { // Adds an event listener for keydown events
+        if (balloon.innerHTML === "🎈") { // Checks for if the balloon emoji is displayed
+            if (event.key === "ArrowUp") { // Checks if the up arrow key is the key being pressed
+                size *= 1.1; // Increases the size of the balloon by 10%
+                if (size > 100) { // Checks if the size of the balloon is greater than 100 pixels
+                    balloon.innerHTML = "💥"; // Changes the balloon to an explosion emoji when past the 100px threshold
+                    document.removeEventListener("keydown", arguments.callee); // Removes the event listener to stop further changes to the emoji
                 } else {
-                    balloon.style.fontSize = size + "px";
+                    balloon.style.fontSize = size + "px"; // Updates the font size of the balloon
                 }
-            } else if (event.key === "ArrowDown") {
-                size *= 0.9;
-                balloon.style.fontSize = size + "px";
+            } else if (event.key === "ArrowDown") { // Checks if the down arrow key is the key being pressed
+                size *= 0.9; // Decreases the size of the balloon by 10%
+                balloon.style.fontSize = size + "px"; // Updates the font size of the balloon
             }
         }
-        event.preventDefault();
+        event.preventDefault(); // Prevents the default action of the arrow keys, which would be scrolling the webpage
     });
 });
 // 2. The index.html page has a tabbed layout. Make the default state of the layout show
