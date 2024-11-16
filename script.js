@@ -39,3 +39,22 @@ document.addEventListener('DOMContentLoaded', function () { // Waits until the d
 // function as expected. There are many ways to accomplish this task, but you will need
 // to at minimum add listeners to each link and toggle the display of the tab contents.
 // Hint: display: none; hides an element, and display: block; will bring it
+function ShowTab(TabList) {
+    const tabs = document.querySelectorAll('#tabbed-contents > div');
+    tabs.forEach((tab, index) => {
+        tab.style.display = (index === TabList) ? 'block' : 'none';
+    });
+}
+document.getElementById("tab1Link").addEventListener("click", function (event) {
+    event.preventDefault();
+    ShowTab(0);
+});
+document.getElementById("tab2Link").addEventListener("click", function (event) {
+    event.preventDefault();
+    ShowTab(1);
+});
+document.getElementById("tab3Link").addEventListener("click", function (event) {
+    event.preventDefault();
+    ShowTab(2);
+});
+ShowTab(0);
